@@ -1,11 +1,11 @@
 // Imports
-import SampleLogo from './Restaurant_Sample_Logo.jpg'
-import InstagramIcon from './Instagram_Icon.png'
-import FacebookIcon from './Facebook_Icon.png'
-import LocationImgOne from './McDonald\'s_Logo.svg'
-import LocationImgTwo from './Chick-fil-A_Logo.svg'
-import LocationImgThree from './Wendy\'s_Logo.svg'
-import LocationImgFour from './KFC_Logo.svg'
+import SampleLogo from './images/Restaurant_Sample_Logo.jpg'
+import InstagramIcon from './images/Instagram_Icon.png'
+import FacebookIcon from './images/Facebook_Icon.png'
+import LocationImgOne from './images/McDonald\'s_Logo.svg'
+import LocationImgTwo from './images/Chick-fil-A_Logo.svg'
+import LocationImgThree from './images/Wendy\'s_Logo.svg'
+import LocationImgFour from './images/KFC_Logo.svg'
 
 function initialize(content) {
     // Create the main containers
