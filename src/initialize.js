@@ -2,6 +2,10 @@
 import SampleLogo from './Restaurant_Sample_Logo.jpg'
 import InstagramIcon from './Instagram_Icon.png'
 import FacebookIcon from './Facebook_Icon.png'
+import LocationImgOne from './McDonald\'s_Logo.svg'
+import LocationImgTwo from './Chick-fil-A_Logo.svg'
+import LocationImgThree from './Wendy\'s_Logo.svg'
+import LocationImgFour from './KFC_Logo.svg'
 
 function initialize(content) {
     // Create the main containers
@@ -64,6 +68,57 @@ function initialize(content) {
 
     navContainer.appendChild(nav);
     // Finish Create nav bar
+
+    // Begin Locations box
+    const locationOne = document.createElement('div');
+    locationOne.classList.add('locationBox');
+    locationOne.id = 'locationBoxOne';
+    const locationTwo = document.createElement('div');
+    locationTwo.classList.add('locationBox');
+    locationTwo.id = 'locationBoxTwo';
+    const locationThree = document.createElement('div');
+    locationThree.classList.add('locationBox');
+    locationThree.id = 'locationBoxThree';
+    const locationFour = document.createElement('div');
+    locationFour.classList.add('locationBox');
+    locationFour.id = 'locationBoxFour';
+
+    const locationBoxes = [locationOne, locationTwo, locationThree, locationFour];
+    const locationImgs = [LocationImgOne, LocationImgTwo, LocationImgThree, LocationImgFour];
+    let i = 1;
+    locationBoxes.forEach( (location) => {
+        let idIndex = '';
+        if(i === 1) {
+            idIndex = 'One';
+        } else if(i === 2) {
+            idIndex = 'Two';
+        } else if(i === 3) {
+            idIndex = 'Three';
+        } else {
+            idIndex = 'Four';
+        }
+
+        const locationImg = new Image();
+        locationImg.src = locationImgs[i - 1];
+        locationImg.id = `locationImg${idIndex}`;
+        locationImg.classList.add('locationImg');
+
+        const locationNameContainer = document.createElement('div');
+        locationNameContainer.classList.add('locationNameContainer');
+        locationNameContainer.id = `locationNameContainer${idIndex}`;
+
+        const locationName = document.createElement('p');
+        locationName.id = `locationName${idIndex}`;
+        locationName.classList.add('locationName');
+        locationName.textContent = 'City, State';
+        locationNameContainer.appendChild(locationName);
+
+        location.append(locationImg, locationNameContainer);
+
+        i++;
+    });
+    locationsContainer.append(locationOne, locationTwo, locationThree, locationFour);
+    // End Locations Box
 
     // Append containers to content div
     content.append(navContainer, locationsContainer, footerContainer);
