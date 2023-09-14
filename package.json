@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "pre-deply": "npm run build",
+    "pre-deploy": "npm run build",
     "deploy": "gh-pages -d build",
     "server": "node server.js",
     "start": "webpack serve --open",
