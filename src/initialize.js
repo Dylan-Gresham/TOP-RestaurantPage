@@ -11,8 +11,8 @@ function initialize(content) {
     // Create the main containers
     const navContainer = document.createElement('div');
     navContainer.id = 'navContainer';
-    const locationsContainer = document.createElement('div');
-    locationsContainer.id = 'locationsContainer';
+    const mainContainer = document.createElement('div');
+    mainContainer.id = 'mainContainer';
     const footerContainer = document.createElement('div');
     footerContainer.id = 'footerContainer';
 
@@ -24,6 +24,9 @@ function initialize(content) {
     const logoImg = new Image();
     logoImg.src = SampleLogo;
     logoImg.id = 'logoImg';
+    logoImg.addEventListener('click', (event) => {
+       makeLocationsContainer(mainContainer);
+    });
     nav.appendChild(logoImg);
 
     // Create and Add Links
@@ -69,7 +72,55 @@ function initialize(content) {
     navContainer.appendChild(nav);
     // Finish Create nav bar
 
-    // Begin Locations box
+    // Begin Create content section
+    makeLocationsContainer(mainContainer);
+    // Finish Create content section
+
+    // Begin Create footer
+    const footerLink = document.createElement('a');
+    footerLink.id = 'footerLink';
+    footerLink.setAttribute('href', 'https://github.com/Dylan-Gresham/TOP-RestaurantPage');
+    footerLink.setAttribute('target', '_blank');
+    footerLink.textContent = 'GitHub';
+
+    footerContainer.appendChild(footerLink);
+    // Finish Create footer
+
+    // Add button listeners
+    linkOne.addEventListener('click', (event) => {
+        makeLocationsContainer(mainContainer);
+
+        event.stopPropagation();
+    });
+
+    linkTwo.addEventListener('click', (event) => {
+       makeMenuContainer(mainContainer);
+
+       event.stopPropagation();
+    });
+
+    linkThree.addEventListener('click', (event) => {
+       makeAboutContainer(mainContainer);
+
+       event.stopPropagation();
+    });
+
+    // Append containers to content div
+    content.append(navContainer, mainContainer, footerContainer);
+}
+
+function emptyElement(element) {
+    while(element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+}
+
+function makeLocationsContainer(container) {
+    container.id = 'locationsContainer';
+    // Empty the container
+    emptyElement(container);
+
+    // Create the contents
     const locationOne = document.createElement('div');
     locationOne.classList.add('locationBox');
     locationOne.id = 'locationBoxOne';
@@ -117,11 +168,119 @@ function initialize(content) {
 
         i++;
     });
-    locationsContainer.append(locationOne, locationTwo, locationThree, locationFour);
-    // End Locations Box
+    container.append(locationOne, locationTwo, locationThree, locationFour);
+}
 
-    // Append containers to content div
-    content.append(navContainer, locationsContainer, footerContainer);
+function makeMenuContainer(container) {
+    container.id = 'menuContainer';
+    // Empty the container
+    emptyElement(container);
+
+    // Create the content containers
+    const appetizers = document.createElement('div');
+    const entrees = document.createElement('div');
+    const desserts = document.createElement('div');
+    const drinks = document.createElement('div');
+
+    // Create the information for the different containers
+
+    // Create info for appetizers
+    const appetizersHeader = document.createElement('h2');
+    appetizersHeader.textContent = 'Appetizers';
+    appetizersHeader.classList.add('menuHeader');
+    appetizersHeader.id = 'appetizersHeader';
+    appetizers.appendChild(appetizersHeader);
+
+    for(let i = 0; i < 5; i++) {
+        const appetizer = document.createElement('p');
+        appetizer.classList.add('menuItem');
+        appetizer.textContent = `Insert appetizer ${i + 1} here...`;
+        appetizers.appendChild(appetizer);
+    }
+
+    // Create info for entrées
+    const entreesHeader = document.createElement('h2');
+    entreesHeader.textContent = 'Entrees';
+    entreesHeader.classList.add('menuHeader');
+    entreesHeader.id = 'entreesHeader';
+    entrees.appendChild(entreesHeader);
+
+    for(let i = 0; i < 10; i++) {
+        const entree = document.createElement('p');
+        entree.classList.add('menuItem');
+        entree.textContent = `Insert entree ${i + 1} here...`;
+        entrees.appendChild(entree);
+    }
+
+    // Create info for desserts
+    const dessertsHeader = document.createElement('h2');
+    dessertsHeader.textContent = 'Desserts';
+    dessertsHeader.classList.add('menuHeader');
+    dessertsHeader.id = 'dessertsHeader';
+    desserts.appendChild(dessertsHeader);
+
+    for(let i = 0; i < 5; i++) {
+        const dessert = document.createElement('p');
+        dessert.classList.add('menuItem');
+        dessert.textContent = `Insert dessert ${i + 1} here...`;
+        desserts.appendChild(dessert);
+    }
+
+    // Create info for drinks
+    const drinksHeader = document.createElement('h2');
+    drinksHeader.textContent = 'Drinks';
+    drinksHeader.classList.add('menuHeader');
+    drinksHeader.id = 'drinksHeader';
+    drinks.appendChild(drinksHeader);
+
+    for(let i = 0; i < 10; i++) {
+        const drink = document.createElement('p');
+        drink.classList.add('menuItem');
+        drink.textContent = `Insert dessert ${i + 1} here...`;
+        drinks.appendChild(drink);
+    }
+
+    // Add elements to container
+    container.append(appetizers, entrees, desserts, drinks);
+}
+
+function makeAboutContainer(container) {
+    container.id = 'aboutContainer';
+    // Empty the container
+    emptyElement(container);
+
+    // Create content
+    const descriptionContainer = document.createElement('div');
+    const descriptionHeader = document.createElement('h1');
+    descriptionHeader.id = 'descriptionHeader';
+    descriptionHeader.textContent = 'RESTAURANT NAME';
+
+    const description = document.createElement('p');
+    description.id = 'description';
+    description.textContent = 'Insert description of restaurant here';
+    descriptionContainer.append(descriptionHeader, description);
+
+    const historyContainer = document.createElement('div');
+    const historyHeader = document.createElement('h2');
+    historyHeader.id = 'historyHeader';
+    historyHeader.textContent = 'HISTORY';
+
+    const history = document.createElement('p');
+    history.id = 'history';
+    history.textContent = 'Insert history of restaurant here';
+    historyContainer.append(historyHeader, history);
+
+    const futureContainer = document.createElement('div');
+    const futureHeader = document.createElement('h2');
+    futureHeader.id = 'futureHeader';
+    futureHeader.textContent = 'FUTURE PLANS';
+
+    const future = document.createElement('p');
+    future.id = 'future';
+    future.textContent = 'Insert plans for the future of the restaurant here.'
+    futureContainer.append(futureHeader, future);
+
+    container.append(descriptionContainer, historyContainer, futureContainer);
 }
 
 export {SampleLogo, initialize};
