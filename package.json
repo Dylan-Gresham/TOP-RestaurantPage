@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
+    "reload": "git subtree push --prefix dist origin gh-pages",
     "server": "node server.js",
     "start": "webpack serve --open",
     "watch": "webpack --watch"
