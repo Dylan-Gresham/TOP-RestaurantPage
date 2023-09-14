@@ -26,6 +26,8 @@ function initialize(content) {
     logoImg.id = 'logoImg';
     logoImg.addEventListener('click', (event) => {
        makeLocationsContainer(mainContainer);
+
+       event.stopPropagation();
     });
     nav.appendChild(logoImg);
 
@@ -138,7 +140,7 @@ function makeLocationsContainer(container) {
     const locationImgs = [LocationImgOne, LocationImgTwo, LocationImgThree, LocationImgFour];
     let i = 1;
     locationBoxes.forEach( (location) => {
-        let idIndex = '';
+        let idIndex;
         if(i === 1) {
             idIndex = 'One';
         } else if(i === 2) {
