@@ -25,9 +25,9 @@ function initialize(content) {
     logoImg.src = SampleLogo;
     logoImg.id = 'logoImg';
     logoImg.addEventListener('click', (event) => {
-       makeLocationsContainer(mainContainer);
+        makeLocationsContainer(mainContainer);
 
-       event.stopPropagation();
+        event.stopPropagation();
     });
     nav.appendChild(logoImg);
 
@@ -96,15 +96,15 @@ function initialize(content) {
     });
 
     linkTwo.addEventListener('click', (event) => {
-       makeMenuContainer(mainContainer);
+        makeMenuContainer(mainContainer);
 
-       event.stopPropagation();
+        event.stopPropagation();
     });
 
     linkThree.addEventListener('click', (event) => {
-       makeAboutContainer(mainContainer);
+        makeAboutContainer(mainContainer);
 
-       event.stopPropagation();
+        event.stopPropagation();
     });
 
     // Append containers to content div
@@ -112,7 +112,7 @@ function initialize(content) {
 }
 
 function emptyElement(element) {
-    while(element.firstChild) {
+    while (element.firstChild) {
         element.removeChild(element.firstChild);
     }
 }
@@ -139,13 +139,13 @@ function makeLocationsContainer(container) {
     const locationBoxes = [locationOne, locationTwo, locationThree, locationFour];
     const locationImgs = [LocationImgOne, LocationImgTwo, LocationImgThree, LocationImgFour];
     let i = 1;
-    locationBoxes.forEach( (location) => {
+    locationBoxes.forEach((location) => {
         let idIndex;
-        if(i === 1) {
+        if (i === 1) {
             idIndex = 'One';
-        } else if(i === 2) {
+        } else if (i === 2) {
             idIndex = 'Two';
-        } else if(i === 3) {
+        } else if (i === 3) {
             idIndex = 'Three';
         } else {
             idIndex = 'Four';
@@ -193,7 +193,7 @@ function makeMenuContainer(container) {
     appetizersHeader.id = 'appetizersHeader';
     appetizers.appendChild(appetizersHeader);
 
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         const appetizer = document.createElement('p');
         appetizer.classList.add('menuItem');
         appetizer.textContent = `Insert appetizer ${i + 1} here...`;
@@ -207,7 +207,7 @@ function makeMenuContainer(container) {
     entreesHeader.id = 'entreesHeader';
     entrees.appendChild(entreesHeader);
 
-    for(let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         const entree = document.createElement('p');
         entree.classList.add('menuItem');
         entree.textContent = `Insert entree ${i + 1} here...`;
@@ -221,7 +221,7 @@ function makeMenuContainer(container) {
     dessertsHeader.id = 'dessertsHeader';
     desserts.appendChild(dessertsHeader);
 
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         const dessert = document.createElement('p');
         dessert.classList.add('menuItem');
         dessert.textContent = `Insert dessert ${i + 1} here...`;
@@ -235,7 +235,7 @@ function makeMenuContainer(container) {
     drinksHeader.id = 'drinksHeader';
     drinks.appendChild(drinksHeader);
 
-    for(let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         const drink = document.createElement('p');
         drink.classList.add('menuItem');
         drink.textContent = `Insert dessert ${i + 1} here...`;
