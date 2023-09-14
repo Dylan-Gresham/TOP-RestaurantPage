@@ -2,7 +2,7 @@
   "name": "top-restaurantpage",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://dylan-gresham.github.io/TOP-RestaurantPage",
+  "homepage": ".",
   "private": true,
   "scripts": {
     "build": "webpack",
