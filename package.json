@@ -2,13 +2,11 @@
   "name": "top-restaurantpage",
   "version": "1.0.0",
   "description": "",
-  "repository": {
-    "url": "git+https://github.com/Dylan-Gresham/TOP-RestaurantPage.git"
-  },
   "private": true,
   "scripts": {
     "build": "webpack",
-    "reload": "git subtree push --prefix dist origin gh-pages",
+    "deploy": "git push origin :gh-pages && git subtree push --prefix dist origin gh-pages",
+    "deploy-init": "git push origin && git subtree push --prefix dist origin gh-pages",
     "server": "node server.js",
     "start": "webpack serve --open",
     "watch": "webpack --watch"
