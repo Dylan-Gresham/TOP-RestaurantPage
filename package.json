@@ -2,6 +2,9 @@
   "name": "top-restaurantpage",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "url": "git+https://github.com/Dylan-Gresham/TOP-RestaurantPage.git"
+  },
   "private": true,
   "scripts": {
     "build": "webpack",
