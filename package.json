@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack",
     "pre-deploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "server": "node server.js",
     "start": "webpack serve --open",
     "watch": "webpack --watch"
